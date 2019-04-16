@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ang-lessons-project_1';
   name = 'Oleh';
+  isButtonDisabled = true;
+
+  constructor()  {
+    setTimeout(() => {
+      this.isButtonDisabled = false;
+    }, 2000);
+    alert('Enabled');
+  }
 }
