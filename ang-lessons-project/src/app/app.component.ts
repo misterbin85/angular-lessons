@@ -14,6 +14,10 @@ export class AppComponent {
     setTimeout(() => {
       this.isButtonDisabled = false;
     }, 2000);
-    alert('Enabled');
   }
+
+  onButtonClick() {
+    window.alert('Button clicked!');
+  }
+
 }
