@@ -7,4 +7,8 @@
 <p [innerText]="isButtonDisabled"></p>
 
 <button class="btn btn-primary" (click)="onButtonClick()">ClickMe</button>
+<hr>
+<!-- <input type="text" class="form-control" style="width: fit-content" placeholder="Type some text here" (input)="onMeTyping($event)"> -->
+<input type="text" class="form-control" style="width: fit-content" placeholder="Type again" [(ngModel)]="typedText">
+<p [innerText]="showText"></p>
 

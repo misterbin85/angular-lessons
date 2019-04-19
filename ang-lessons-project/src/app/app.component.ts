@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'ang-lessons-project_1';
   name = 'Oleh';
   isButtonDisabled = true;
+  typedText = '';
+  showText = '';
 
   constructor()  {
     setTimeout(() => {
@@ -17,7 +19,12 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    window.alert('Button clicked!');
+    // window.alert('Button clicked!');
+    this.showText = 'You typed: ' + this.typedText;
+  }
+
+  onMeTyping(event: Event) {
+    this.typedText = (event.target as HTMLInputElement ).value;
   }
 
 }
