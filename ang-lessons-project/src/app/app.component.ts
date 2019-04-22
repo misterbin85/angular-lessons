@@ -20,7 +20,11 @@ export class AppComponent {
 
   onButtonClick() {
     // window.alert('Button clicked!');
-    this.showText = 'You typed: ' + this.typedText;
+    if (this.typedText.length > 0) {
+      this.showText = 'You typed: ' + this.typedText;
+    } else {
+      this.showText = '';
+    }
   }
 
   onMeTyping(event: Event) {

@@ -10,5 +10,5 @@
 <hr>
 <!-- <input type="text" class="form-control" style="width: fit-content" placeholder="Type some text here" (input)="onMeTyping($event)"> -->
 <input type="text" class="form-control" style="width: fit-content" placeholder="Type again" [(ngModel)]="typedText">
-<p [innerText]="showText"></p>
+<p *ngIf="typedText.length>0" [innerText]="showText"></p>
 
