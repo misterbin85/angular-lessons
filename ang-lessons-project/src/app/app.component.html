@@ -5,10 +5,22 @@
 <button class="btn btn-primary" [disabled]="isButtonDisabled" >Add</button>
 <p>The button is disabled: {{isButtonDisabled}}</p>
 <p [innerText]="isButtonDisabled"></p>
-
-<button class="btn btn-primary" (click)="onButtonClick()">ClickMe</button>
 <hr>
 <!-- <input type="text" class="form-control" style="width: fit-content" placeholder="Type some text here" (input)="onMeTyping($event)"> -->
 <input type="text" class="form-control" style="width: fit-content" placeholder="Type again" [(ngModel)]="typedText">
-<p *ngIf="typedText.length>0" [innerText]="showText"></p>
+
+<p *ngIf="typedText.length>0; else ifEmpty" [ngClass]="{myText: typedText.length > 0}" [innerText]="showText"></p>
+
+<ng-template #ifEmpty>
+  <hr>
+  <p [ngStyle]="{color: errorColor, fontSize:'21px'}">
+    No typed text
+  </p>
+</ng-template>
+
+<button class="btn btn-primary" (click)="onButtonClick()">Show what I just typed</button>
+<button class="btn btn-primary" (click)="onShowAllClick()">Show All texts</button>
+
+<p *ngFor="let text of allTypedTexts" [innerText]="text"></p>
+
 
