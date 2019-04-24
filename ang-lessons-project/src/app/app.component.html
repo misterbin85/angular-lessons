@@ -1,14 +1,14 @@
 <input type="text" [(ngModel)] = "name" >
-<hr>
 <p>{{name}}</p>
 
+<hr>
+<div>Next lesson</div>
 <button class="btn btn-primary" [disabled]="isButtonDisabled" >Add</button>
 <p>The button is disabled: {{isButtonDisabled}}</p>
 <p [innerText]="isButtonDisabled"></p>
 <hr>
 <!-- <input type="text" class="form-control" style="width: fit-content" placeholder="Type some text here" (input)="onMeTyping($event)"> -->
 <input type="text" class="form-control" style="width: fit-content" placeholder="Type again" [(ngModel)]="typedText">
-
 <p *ngIf="typedText.length>0; else ifEmpty" [ngClass]="{myText: typedText.length > 0}" [innerText]="showText"></p>
 
 <ng-template #ifEmpty>
@@ -19,8 +19,8 @@
 </ng-template>
 
 <button class="btn btn-primary" (click)="onButtonClick()">Show what I just typed</button>
-<button class="btn btn-primary" (click)="onShowAllClick()">Show All texts</button>
 
-<p *ngFor="let text of allTypedTexts" [innerText]="text"></p>
-
-
+<button class="btn btn-primary" (click)="onShowAllClick()">Show All typed texts</button>
+<ul *ngIf="showAll.length > 0">
+    <li *ngFor="let text of showAll; let i = index">{{i+1}} element = {{text}}</li>
+</ul>

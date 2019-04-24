@@ -10,9 +10,12 @@ export class AppComponent {
   title = 'ang-lessons-project_1';
   name = 'Oleh';
   isButtonDisabled = true;
+
   typedText = '';
   allTypedTexts: string[] = [];
+  showAll: string[] = [];
   showText = '';
+
   errorColor = 'red';
 
   constructor()  {
@@ -22,7 +25,6 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    // window.alert('Button clicked!');
     if (this.typedText.length > 0) {
       this.showText = 'You typed: ' + this.typedText;
       this.allTypedTexts.push(this.typedText);
@@ -31,7 +33,7 @@ export class AppComponent {
     }
   }
   onShowAllClick() {
-
+    this.showAll = this.allTypedTexts;
   }
 
   onMeTyping(event: Event) {
