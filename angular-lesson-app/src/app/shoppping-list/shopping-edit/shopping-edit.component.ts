@@ -9,6 +9,14 @@ export class ShoppingEditComponent implements OnInit {
 
   constructor() { }
 
+  addClick(el: HTMLInputElement) {
+    if (el.value === undefined || el.value === '') {
+      alert('Empty value');
+    } else {
+      alert(el.value);
+    }
+  }
+
   ngOnInit() {
   }
 
