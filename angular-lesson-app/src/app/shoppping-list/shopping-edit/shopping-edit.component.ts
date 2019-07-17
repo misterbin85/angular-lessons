@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
+@Input() test: string;
+//test: string;
 
-  constructor() { }
+constructor() { }
 
-  addClick(el: HTMLInputElement) {
+  delClick(el: HTMLInputElement) {
+    alert(this.test);
     if (el.value === undefined || el.value === '') {
       alert('Empty value');
     } else {

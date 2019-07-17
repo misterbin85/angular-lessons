@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,7 @@ import { ShoppingEditComponent } from './shoppping-list/shopping-edit/shopping-e
     ShoppingEditComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],
