@@ -6,13 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-@Input() test: string;
-//test: string;
+
+  @Input() test: string;
 
 constructor() { }
 
   delClick(el: HTMLInputElement) {
-    alert(this.test);
+    if (this.test !== undefined) {
+        alert(this.test);
+      }
     if (el.value === undefined || el.value === '') {
       alert('Empty value');
     } else {

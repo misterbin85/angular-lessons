@@ -13,6 +13,7 @@ export class ShopppingListComponent implements OnInit {
     new Ingredient('Tomatoes', 10)
   ];
 
+  defValue = 'NiceTry';
   constructor() { }
 
   ngOnInit() {
