@@ -1,5 +1,7 @@
 import { Ingredient } from './../shared/ingredient.model';
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-shoppping-list',
@@ -14,9 +16,16 @@ export class ShopppingListComponent implements OnInit {
   ];
 
   defValue = 'NiceTry';
-  constructor() { }
+  users: JSON[];
+
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit() {
+    this.http.get('https://reqres.in/api/users').subscribe(c => {
+      this.users = c['data'];
+      this.users.forEach(user => console.log(user['email']));
+      });
   }
 
 }
