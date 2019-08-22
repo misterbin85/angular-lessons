@@ -12,3 +12,10 @@
     </ul>
   </div>
 </div>
+<section>
+  <ul *ngIf="users">
+    <li *ngFor="let user of users">
+      <h3>{{user.email}}</h3>
+    </li>
+  </ul>
+</section>
