@@ -1,7 +1,7 @@
 import { Ingredient } from './../shared/ingredient.model';
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { forEach } from '@angular/router/src/utils/collection';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-shoppping-list',
@@ -16,9 +16,26 @@ export class ShopppingListComponent implements OnInit {
   ];
 
   defValue = 'NiceTry';
-  users: JSON[];
 
-  constructor(private http: HttpClient) {
+  users: JSON[];
+  messageForm: FormGroup;
+  submitted = false;
+  success = false;
+
+  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+    this.messageForm = formBuilder.group({
+      name: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.messageForm.invalid) {
+      return;
+    }
+    this.success = true;
   }
 
   ngOnInit() {
