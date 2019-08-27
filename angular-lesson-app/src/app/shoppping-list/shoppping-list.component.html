@@ -21,7 +21,7 @@
 </section>
 
 <div>
-  <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="messageForm" novalidate  (ngSubmit)="onSubmit()">
     <h5 *ngIf="success">Your form is valid</h5>
     <label> Name:
       <input type="text" formControlName="name">
@@ -37,7 +37,14 @@
         </div>
       </label>
 
-      <input type="submit" value="Send a message" class="cta">
+      <label> Photo:
+          <input type="file" formControlName="photo">
+          <div *ngIf="submitted && messageForm.controls.photo.errors" class="error">
+            <div *ngIf="messageForm.controls.photo.errors.required"> A photo is required</div>
+          </div>
+        </label>
+
+      <input type="submit" [disabled]="messageForm.untouched" value="Send a message" class="cta">
   </form>
   <div *ngIf="submitted" class="results">
     <strong>Name:</strong>

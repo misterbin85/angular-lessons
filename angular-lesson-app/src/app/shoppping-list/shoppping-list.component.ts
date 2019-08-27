@@ -25,7 +25,8 @@ export class ShopppingListComponent implements OnInit {
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {
     this.messageForm = formBuilder.group({
       name: ['', Validators.required],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
+      photo: [null, Validators.required]
     });
   }
 
