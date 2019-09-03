@@ -29,7 +29,7 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo(todo: Todo) {
-    this.todoService.addTodo(todo).subscribe(t => {this.todos.push(t)});
+    this.todoService.addTodo(todo).subscribe(t => this.todos.push(t));
   }
 
 }
